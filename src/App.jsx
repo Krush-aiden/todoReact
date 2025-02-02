@@ -8,7 +8,7 @@ function App() {
   const [name, setName] = useState("ramesh");
 
   useEffect(()=>{
-    setName("ramesh")
+    setName("Suresh1");
   },[])
   return (
     <>
@@ -21,6 +21,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React + {name}</h1>
+      <h2>{import.meta.env.VITE_APP_NAME}</h2>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
