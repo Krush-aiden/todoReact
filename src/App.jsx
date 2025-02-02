@@ -8,7 +8,7 @@ function App() {
   const [name, setName] = useState("ramesh");
 
   useEffect(()=>{
-    setName("Suresh1");
+    setName("Alex");
   },[])
   return (
     <>
