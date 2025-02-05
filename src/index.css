@@ -66,3 +66,38 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+#headerTab{
+  display: flex;
+  flex-direction: row;
+  color: blue;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+#searchBtn , #sortValInputBtn, #filterInputBtn{
+  padding: 20px;
+}
+
+#searchInputBtn , #sortValInputBtn, #filterInputBtn{
+  padding: 5px;
+}
+
+#sortBtn , #sortValInputBtn, #filterInputBtn{
+  padding: 20px;
+}
+#sortInputBtn, #sortValInputBtn, #filterInputBtn{
+  padding: 5px;
+}
+
+table {
+  font-size: 1.5rem;  /* Instead of fixed 40px, use relative units */
+  padding: 1rem;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
