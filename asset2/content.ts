@@ -1,0 +1,72 @@
+export const posts = [
+  {
+    id: 7,
+    title: "Thai Curry",
+    content: ["Green Curry", "Red Curry", "Massaman"],
+    category: "American",
+    price: 16.99,
+  },
+  {
+    id: 3,
+    title: "Mexican Tacos",
+    content: ["Authentic Street Tacos"],
+    category: "Mexican",
+    price: 9.99,
+  },
+  {
+    id: 10,
+    title: "Vietnamese Pho",
+    content: ["Traditional Beef Pho"],
+    category: "American",
+    price: 13.99,
+  },
+  {
+    id: 5,
+    title: "Japanese Sushi",
+    content: ["California Roll", "Dragon Roll", "Tempura"],
+    category: "Mexican",
+    price: 22.99,
+  },
+  {
+    id: 8,
+    title: "American Burger",
+    content: ["Classic Cheeseburger"],
+    category: "American",
+    price: 11.99,
+  },
+  {
+    id: 2,
+    title: "Chinese Cuisine",
+    content: ["Noodles", "Dumplings", "Fried Rice"],
+    category: "Italian",
+    price: 15.99,
+  },
+  {
+    id: 6,
+    title: "Greek Salad",
+    content: ["Mediterranean Fresh Salad"],
+    category: "Italian",
+    price: 8.99,
+  },
+  {
+    id: 1,
+    title: "Italian Pasta",
+    content: ["Spaghetti", "Penne", "Fettuccine"],
+    category: "Italian",
+    price: 12.99,
+  },
+  {
+    id: 9,
+    title: "French Pastries",
+    content: ["Croissant", "Éclair", "Macaron"],
+    category: "French",
+    price: 18.99,
+  },
+  {
+    id: 4,
+    title: "Indian Curry",
+    content: ["Butter Chicken", "Tikka Masala", "Biryani"],
+    category: "Mexican",
+    price: 14.99,
+  }
+];
