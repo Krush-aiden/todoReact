@@ -1,17 +1,43 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { posts } from "../asset2/content.ts";
 
 function App() {
   // const [products, setProducts] = useState(posts);
+  const itemsPerPage = 10;
+
   const [sortId, setSortId] = useState("id");
   const [sortType, setSortType] = useState("id");
 
   const [searchText, setSearchText] = useState("");
   const [filterValue, setFilterValue] = useState("");
+  const [paginationArr, setPaginationArr] = useState([]);
+  const [selectedPegiVal, setSelectedPegiVal] = useState(1);
+
+  const calcPaginationPage = Math.floor(posts.length / itemsPerPage);
+
+  useEffect(() => {
+    let pegiArr = [];
+    for (let i = 0; i < calcPaginationPage; i++) {
+      pegiArr[i] = i + 1;
+    }
+    setPaginationArr(pegiArr);
+  }, [calcPaginationPage]);
+
+  const filterPaginationValue = useMemo(() => {
+    console.log("🚀 ~ useEffect ~ selectedPegiVal:", selectedPegiVal);
+    console.log("🚀 ~ filterPaginationValue ~ itemsPerPage:", itemsPerPage);
+    const startIndex = (selectedPegiVal - 1) * itemsPerPage;
+    console.log("🚀 ~ filterPaginationValue ~ startIndex:", startIndex);
+    const endIndex = startIndex + itemsPerPage;
+    console.log("🚀 ~ filterPaginationValue ~ endIndex:", endIndex);
+    return posts.slice((selectedPegiVal - 1) * itemsPerPage, endIndex);
+  }, [selectedPegiVal]);
+
+  console.log("🚀 ~ calcPaginationPage ~:", calcPaginationPage);
 
   const filteredProductsAfterSearch = useMemo(() => {
-    return posts.filter((val) => {
+    return filterPaginationValue.filter((val) => {
       return Object.values(val).some((value) => {
         return value
           .toString()
@@ -19,7 +45,7 @@ function App() {
           .includes(searchText.toLowerCase());
       });
     });
-  }, [searchText]);
+  }, [searchText, filterPaginationValue]);
 
   console.log(
     "🚀 ~ filteredProductsAfterSearch ~ filteredProductsAfterSearch:",
@@ -27,9 +53,9 @@ function App() {
   );
 
   const sortedAndFilteredProducts = useMemo(() => {
-    console.log("🚀 ~ sortedAndFilteredProducts ~ filterValue:", filterValue);
-    console.log("🚀 ~ sorted ~ sortId:", sortId);
-    console.log("🚀 ~ sortedAndFilteredProducts ~ sortType:", sortType);
+    // console.log("🚀 ~ sortedAndFilteredProducts ~ filterValue:", filterValue);
+    // console.log("🚀 ~ sorted ~ sortId:", sortId);
+    // console.log("🚀 ~ sortedAndFilteredProducts ~ sortType:", sortType);
 
     const filtered = filterValue
       ? filteredProductsAfterSearch.filter(
@@ -164,6 +190,21 @@ function App() {
             })}
           </tbody>
         </table>
+        <div className="pagination-box">
+          {paginationArr.map((val, index) => {
+            // console.log("🚀 ~ {paginationArr.forEach ~ val:", val);
+            return (
+              <h2
+                key={index}
+                name={index}
+                className="pagination-item"
+                onClick={() => setSelectedPegiVal(val)}
+              >
+                {val}
+              </h2>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -67,6 +67,37 @@ button:focus-visible {
   }
 } */
 
+.pagination-box {
+  width: 300px; /* Adjusted width for pagination */
+  height: auto; /* Height adjusts based on content */
+  background-color: lightblue;
+  border: 2px solid blue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px; /* Padding for internal spacing */
+  margin: 20px;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.pagination-item {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid blue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-item:hover {
+  background-color: lightgray;
+}
+
+
 #headerTab{
   display: flex;
   flex-direction: row;
