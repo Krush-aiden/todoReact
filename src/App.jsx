@@ -25,12 +25,8 @@ function App() {
   }, [calcPaginationPage]);
 
   const filterPaginationValue = useMemo(() => {
-    console.log("🚀 ~ useEffect ~ selectedPegiVal:", selectedPegiVal);
-    console.log("🚀 ~ filterPaginationValue ~ itemsPerPage:", itemsPerPage);
     const startIndex = (selectedPegiVal - 1) * itemsPerPage;
-    console.log("🚀 ~ filterPaginationValue ~ startIndex:", startIndex);
     const endIndex = startIndex + itemsPerPage;
-    console.log("🚀 ~ filterPaginationValue ~ endIndex:", endIndex);
     return posts.slice((selectedPegiVal - 1) * itemsPerPage, endIndex);
   }, [selectedPegiVal]);
 
@@ -46,11 +42,6 @@ function App() {
       });
     });
   }, [searchText, filterPaginationValue]);
-
-  console.log(
-    "🚀 ~ filteredProductsAfterSearch ~ filteredProductsAfterSearch:",
-    filteredProductsAfterSearch
-  );
 
   const sortedAndFilteredProducts = useMemo(() => {
     // console.log("🚀 ~ sortedAndFilteredProducts ~ filterValue:", filterValue);
